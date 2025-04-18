@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Filter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section>
+    <div id="category-buttons">
+        <button class="category-button active" onclick="filterCategory('All')">All</button>
+        <button>Pizza</button>
+        <button>Salad</button>
+        <button>Noodles</button>
+    </div>
+    <div id="menu-items"></div>
+  </section>
+
+  <script>
+    const menuItems = [
+      { id: 1, name: 'Aliquam sagittis', price: 10.99, category: 'pizza', img: './assets/item-img-1.png' },
+      { id: 2, name: 'Fusce dictum finibus', price: 12.50, category: 'salad', img: './assets/item-img-2.png' },
+      { id: 3, name: 'Sed varius turpis', price: 8.75, category: 'noodles', img: './assets/item-img-3.png' },
+      { id: 4, name: 'Sed varius turpis', price: 8.75, category: 'noodles', img: './assets/item-img-4.png' },
+    ];
+  
+    const menuItemsContainer = document.getElementById('menu-items');
+  
+    menuItems.forEach(item => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'menu-item';
+      itemDiv.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" class="menu-item__img">
+        <p class="menu-item__name">${item.name}</p>
+        <p class="menu-item__price">$${item.price.toFixed(2)}</p>
+      `;
+      menuItemsContainer.appendChild(itemDiv);
+    });
+  </script>
+  
+</body>
+</html>
